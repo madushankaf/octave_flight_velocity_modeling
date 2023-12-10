@@ -1,0 +1,23 @@
+openapi: 3.0.0
+info:
+  title: Flight Velocity Modeling API
+  description: API for getting flight velocity data
+  version: 1.0.0
+paths:
+  /flight-velocity:
+    get:
+      summary: Get Flight Velocity Data
+      responses:
+        '200':
+          description: Successful response
+          content:
+            image/png:
+              schema:
+                type: string
+                format: binary
+        '500':
+          description: Internal Server Error
+          content:
+            text/plain:
+              schema:
+                type: string
