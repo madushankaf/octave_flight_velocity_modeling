@@ -11,10 +11,9 @@ paths:
         '200':
           description: Successful response
           content:
-            image/png:
+            text/plain:
               schema:
                 type: string
-                format: binary
         '500':
           description: Internal Server Error
           content:
