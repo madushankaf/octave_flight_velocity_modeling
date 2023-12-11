@@ -7,14 +7,39 @@ paths:
   /flight-velocity:
     get:
       summary: Get Flight Velocity Data
+      parameters:
+        - name: acceleration
+          in: query
+          description: acceleration
+          required: true
+          schema:
+            type: string
+        - name: initial_velocity
+          in: query
+          description: initial_velocity
+          required: true
+          schema:
+            type: string
+        - name: time_to_takeoff
+          in: query
+          description: time_to_takeoff
+          required: true
+          schema:
+            type: string
       responses:
         '200':
           description: Successful response
           content:
-            image/png:
+            application/json:
               schema:
-                type: string
-                format: binary
+                type: object
+                properties:
+                  time_and_velocity_matrix:
+                    type: array
+                    items:
+                      type: array
+                      items:
+                        type: number
         '500':
           description: Internal Server Error
           content:

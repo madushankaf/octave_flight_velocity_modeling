@@ -1,21 +1,13 @@
-% Flight Velocity Modeling Example
+function velocity_matrix = flight_velocity_modeling(acceleration, initial_velocity, time_to_takeoff)
+    acceleration = evalin('base', 'acceleration');
+    initial_velocity = evalin('base', 'initial_velocity');
+    time_to_takeoff = evalin('base', 'time_to_takeoff');
+    % Time vector
+    t = 0:0.1:time_to_takeoff;
 
-% Parameters
-acceleration = 2;
-initial_velocity = 0;
-time_to_takeoff = 10;
+    % Calculate velocity
+    velocity = initial_velocity + acceleration * t + 0.5 * acceleration * t.^2;
 
-% Time vector
-t = 0:0.1:time_to_takeoff;
-
-velocity = initial_velocity + acceleration * t + 0.5 * acceleration * t.^2;
-
-% Plotting the results
-plot(t, velocity, 'LineWidth', 2);
-title('Flight Velocity During Takeoff');
-xlabel('Time (seconds)');
-ylabel('Velocity (m/s)');
-#grid on;
-
-% Save the plot as an image file (e.g., PNG)
-saveas(gcf, '/outputs/output_plot.png');
+    % Store time and velocity values in a matrix
+    velocity_matrix = [t' velocity'];
+end
