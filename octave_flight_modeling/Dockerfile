@@ -9,10 +9,17 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
+RUN chmod +w /octave_flight_modeling
+
+
 RUN apt-get update && apt-get install -y octave
 
 RUN addgroup --gid 10016 choreo && \
     adduser --disabled-password --no-create-home --uid 10016 --ingroup choreo choreouser
+
+# Change ownership to a specific user and group
+RUN chown -R choreouser:choreo /octave_flight_modeling
+
 
 USER 10016
 

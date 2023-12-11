@@ -18,4 +18,4 @@ ylabel('Velocity (m/s)');
 #grid on;
 
 % Save the plot as an image file (e.g., PNG)
-saveas(gcf, 'output_plot.png');
+saveas(gcf, './output_plot.png');
