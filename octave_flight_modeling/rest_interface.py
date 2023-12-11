@@ -15,9 +15,9 @@ def get_flight_velocity():
     
     # Check if the output_plot.png file exists
     
-    if os.path.exists('output_plot.png'):
+    if os.path.exists('/outputs/output_plot.png'):
         # Convert the image to base64
-        with open('output_plot.png', 'rb') as image_file:
+        with open('/outputs/output_plot.png', 'rb') as image_file:
             encoded_string = base64.b64encode(image_file.read()).decode('utf-8')
         
         # Return the base64 encoded image as a string

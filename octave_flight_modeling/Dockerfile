@@ -1,6 +1,9 @@
 FROM python:3.11
 
+
+
 WORKDIR /octave_flight_modeling
+RUN mkdir /octave_flight_modeling/outputs
 
 COPY ./requirements.txt /octave_flight_modeling/requirements.txt
 COPY ./rest_interface.py /octave_flight_modeling/rest_interface.py
@@ -10,7 +13,7 @@ RUN pip install -r requirements.txt
 COPY . .
 
 RUN chmod +w /octave_flight_modeling
-
+RUN chmod +w /octave_flight_modeling/outputs
 
 RUN apt-get update && apt-get install -y octave
 
@@ -19,6 +22,7 @@ RUN addgroup --gid 10016 choreo && \
 
 # Change ownership to a specific user and group
 RUN chown -R choreouser:choreo /octave_flight_modeling
+RUN chown -R choreouser:choreo /octave_flight_modeling/outputs
 
 
 USER 10016
