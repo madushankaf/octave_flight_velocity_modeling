@@ -15,7 +15,7 @@ plot(t, velocity, 'LineWidth', 2);
 title('Flight Velocity During Takeoff');
 xlabel('Time (seconds)');
 ylabel('Velocity (m/s)');
-grid on;
+#grid on;
 
 % Save the plot as an image file (e.g., PNG)
 saveas(gcf, 'output_plot.png');
